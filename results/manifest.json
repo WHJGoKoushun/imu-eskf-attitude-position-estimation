@@ -1,0 +1,67 @@
+{
+  "settings": {
+    "pose_frame": "imu_to_world_confirmed",
+    "initialization_seconds": 5.0,
+    "attitude_covariance": "rpy",
+    "gyro_bias_rw": 1e-05,
+    "acc_bias_rw": 0.0001
+  },
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.22621-SP0",
+  "numpy": "2.5.3",
+  "data_audit": {
+    "imu": {
+      "dropped_nonfinite_rows": 0,
+      "identical_duplicates_removed": 0,
+      "sha256": "31501ca54bef642b8d98888cfe17acd9af09b9d035d36ab42dda0c2be3fd27e2",
+      "rows": 25614,
+      "duration_s": 128.094403028,
+      "mean_rate_hz": 199.95409162726094,
+      "dt_min_s": 0.003260136,
+      "dt_median_s": 0.004918337,
+      "dt_max_s": 0.020373583,
+      "gaps_over_20ms": 1
+    },
+    "pose": {
+      "dropped_nonfinite_rows": 0,
+      "identical_duplicates_removed": 0,
+      "sha256": "a902021433efacc6de7243998bf8786757f8ba4406dbaf1f4d1d5d3d2cc05c4b",
+      "zero_quaternions_removed": 0,
+      "rows": 25580,
+      "duration_s": 127.894446849,
+      "mean_rate_hz": 200.0008650117556,
+      "dt_min_s": 0.003260136,
+      "dt_median_s": 0.004903555,
+      "dt_max_s": 0.00670743,
+      "gaps_over_20ms": 0
+    },
+    "origin_unix_s": "1786181234.055607796",
+    "exact_shared_timestamps": 25579,
+    "invalid_covariance_rows": 20,
+    "zero_covariance_rows": 20,
+    "leading_zero_covariance_rows": 20,
+    "covariance_blocks": 1279,
+    "covariance_block_unique_lengths": [
+      20
+    ],
+    "covariance_block_length_distribution": {
+      "20": 1279
+    },
+    "covariance_block_min_length": 20,
+    "covariance_block_max_length": 20,
+    "covariance_change_interval_s": {
+      "count": 1278,
+      "mean": 0.10000007626369328,
+      "min": 0.099608898,
+      "median": 0.0999996665,
+      "max": 0.100378036
+    },
+    "quaternion_sign_flips": 1,
+    "quaternion_norm_max_deviation": 6.949012414381173e-07,
+    "acc_unit": "g in source; multiplied by 9.81 once",
+    "gyro_unit": "rad/s",
+    "timestamp_unit": "seconds; parsed as integer nanoseconds",
+    "source_is_not_ground_truth": true
+  },
+  "frame_assumption_confirmed": true
+}

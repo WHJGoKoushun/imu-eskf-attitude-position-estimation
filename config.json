@@ -1,0 +1,7 @@
+{
+  "pose_frame": "imu_to_world_confirmed",
+  "initialization_seconds": 5.0,
+  "attitude_covariance": "rpy",
+  "gyro_bias_rw": 0.00001,
+  "acc_bias_rw": 0.0001
+}

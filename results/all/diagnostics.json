@@ -1,0 +1,18 @@
+{
+  "nis_all": {
+    "count": 24612,
+    "mean": 19.90660827765821,
+    "p99": 248.1253325525159,
+    "max": 1269.1546204662563
+  },
+  "nis_window_65_105_s": {
+    "count": 7999,
+    "mean": 51.02209382207915,
+    "p99": 402.64618887404504,
+    "max": 1269.1546204662563
+  },
+  "nominal_dimension": 6,
+  "nominal_mean_requires_correct_zero_mean_innovation_covariance": true,
+  "source": "all/innovations.csv; pre-update residual, not posterior truth error",
+  "causes_identified": false
+}

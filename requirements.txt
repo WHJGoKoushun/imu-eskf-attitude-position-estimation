@@ -1,0 +1,5 @@
+# Exact versions used for the delivered experiments (Python 3.12).
+numpy==2.5.3
+scipy==1.18.1
+matplotlib==3.11.2
+reportlab==5.0.1

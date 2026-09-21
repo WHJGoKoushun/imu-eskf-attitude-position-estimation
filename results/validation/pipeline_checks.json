@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "checks": [
+    "integer_nanosecond_precision",
+    "column_aliases_and_g_conversion",
+    "identical_duplicate_removal",
+    "conflicting_duplicate_rejection",
+    "quaternion_sign_and_static_bias_initialization",
+    "sparse_initialization_rejected",
+    "asynchronous_event_time_and_single_consumption",
+    "zero_covariance_not_fused",
+    "full_observation_outage_and_csv_roundtrip"
+  ],
+  "check_count": 9,
+  "check_details": [
+    {
+      "id": "integer_nanosecond_precision",
+      "label": "整数纳秒精度及过长小数拒绝",
+      "category": "时间与输入",
+      "passed": true
+    },
+    {
+      "id": "column_aliases_and_g_conversion",
+      "label": "列名别名与加速度 g 单位转换",
+      "category": "时间与输入",
+      "passed": true
+    },
+    {
+      "id": "identical_duplicate_removal",
+      "label": "完全相同的重复行去重",
+      "category": "时间与输入",
+      "passed": true
+    },
+    {
+      "id": "conflicting_duplicate_rejection",
+      "label": "冲突时间戳拒绝",
+      "category": "时间与输入",
+      "passed": true
+    },
+    {
+      "id": "quaternion_sign_and_static_bias_initialization",
+      "label": "四元数连续符号与已知静止偏置初始化",
+      "category": "初始化",
+      "passed": true
+    },
+    {
+      "id": "sparse_initialization_rejected",
+      "label": "校准窗口 IMU 不足两帧时明确拒绝",
+      "category": "初始化",
+      "passed": true
+    },
+    {
+      "id": "asynchronous_event_time_and_single_consumption",
+      "label": "异步观测按自身时间戳更新且只消费一次",
+      "category": "事件回放",
+      "passed": true
+    },
+    {
+      "id": "zero_covariance_not_fused",
+      "label": "零协方差对应的错误位姿不会被融合",
+      "category": "事件回放",
+      "passed": true
+    },
+    {
+      "id": "full_observation_outage_and_csv_roundtrip",
+      "label": "全程观测中断及输出 CSV 字段与物理量回读",
+      "category": "输出契约",
+      "passed": true
+    }
+  ]
+}

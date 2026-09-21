@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-09-21T08:55:20.924734+00:00",
+  "scope": "mandatory attitude and optional position estimation",
+  "numerical_tests_passed": 9,
+  "pipeline_check_groups_passed": 9,
+  "synthetic_fixed_seeds": [
+    7,
+    29,
+    113
+  ],
+  "real_experiments": [
+    "all",
+    "cov_change",
+    "R_x10",
+    "R_x100",
+    "dropout"
+  ],
+  "windows_full_pipeline": "passed with Windows PowerShell 5.1 and Python 3.12.14",
+  "linux_execution": "not performed",
+  "python_policy": "3.12 tested; >=3.12,<4 required by locked dependencies; other eligible versions attempted with warning",
+  "original_data_sha256": {
+    "imu.csv": "31501ca54bef642b8d98888cfe17acd9af09b9d035d36ab42dda0c2be3fd27e2",
+    "pose_cov.csv": "a902021433efacc6de7243998bf8786757f8ba4406dbaf1f4d1d5d3d2cc05c4b"
+  },
+  "report_pdf_pages": {
+    "REPORT.pdf": 6,
+    "TECHNICAL_APPENDIX.pdf": 12
+  },
+  "source_sha256": {
+    "build_report.py": "62e4a3ac995d0f8cf08221b42ca09103508db05d71f1733dda62d3abeede8260",
+    "columns.py": "0662c7847a4dee318090539bf662d30f5da97fa44bdc158a8946270b91d7e2aa",
+    "config.json": "bd42e3d7a4b4670cbbe853d3ad59fe3eb04c3b0a6360d68cdb89c2ac3da88d57",
+    "data_io.py": "150991a219817a6b7e0dda9a15dfeba407039ab4d25163da5f902813f1e13478",
+    "eskf.py": "78882b16363a58d56160a59e6484c4f2ce6315cbe1e0502210702e7cc7f9931f",
+    "plots.py": "1d7b469ed0e36b9800e24a869c20d293e4ac6c97700f2769008388cabb895af4",
+    "requirements.txt": "e83b1f3bbb052a6464918172a6780f6a0d014bfe4e16905b81499ba98c0d9f80",
+    "run.py": "bc0eafe19f4023199c7a47e9d911802d37ffa4c5193b065312f40de096aeb79b",
+    "run_linux.sh": "5aa5776da8af03f9f4d783bbb8720186054f0206675c97881836cc31f191ba29",
+    "run_windows.cmd": "763370bb67ed242a6832419d9ae223183cfe05844c3fb9c8a2405af3f42147b8",
+    "run_windows.ps1": "fbdd66453d6baf51c3a9f892c247922552db69089bb6b79b19bfee6dd071c62d",
+    "validate.py": "2221a9e56adab7a6fe77bc786180fa130ea434111b5a319eeabce5627111e6b5",
+    "validate_pipeline.py": "9af111cf2203f1d1db501d2f234cfe77f90f295593b05a7695731c459db97cf1"
+  },
+  "report_sha256": {
+    "REPORT.pdf": "9d8fb483192c6d8faf444d37424964598265ad37d60d880e99c1a9b4e50c30ee",
+    "TECHNICAL_APPENDIX.pdf": "8854e4bff3a4847dbc792dc70a31e289e840ade6247d9545e791e50d498831ac"
+  },
+  "real_data_independent_ground_truth": false,
+  "note": "This record applies to the packaged files; subsequent changes require renewed validation."
+}

@@ -1,0 +1,98 @@
+{
+  "update_policy": "all",
+  "R_multiplier": 100.0,
+  "attitude_covariance": "rpy",
+  "initialization": {
+    "start_index": 996,
+    "start_time_s": 5.003893137,
+    "calibration_begin_s": 1.0,
+    "imu_calibration_rows": 801,
+    "pose_calibration_rows": 801,
+    "p0_m": [
+      -0.009803614232209724,
+      -0.018270736579275918,
+      -0.004589531835205991
+    ],
+    "q0_xyzw": [
+      0.00481819770389592,
+      -0.0035309791170377025,
+      -0.0016093347374792244,
+      -0.9999808634164278
+    ],
+    "bg0_rad_s": [
+      0.0005955770474407018,
+      0.0024564575443195907,
+      0.01661034482771533
+    ],
+    "ba0_m_s2": [
+      -0.028492806342701807,
+      0.062259342759030285,
+      -0.05658037169865082
+    ],
+    "gyro_sample_std_rad_s": [
+      0.004269056519113636,
+      0.00211235538602805,
+      0.0032087923066562545
+    ],
+    "acc_sample_std_m_s2": [
+      0.11887631719591622,
+      0.022891225840724398,
+      0.03938696576319207
+    ],
+    "gyro_noise_density": 0.0002328709464946945,
+    "acc_noise_density": 0.005162010891747767,
+    "max_attitude_deviation_deg": 0.07342549576288782,
+    "max_position_deviation_m": 0.004961703683451823,
+    "initial_covariance_diagonal": [
+      0.0004,
+      0.0004,
+      0.0004,
+      0.0025000000000000005,
+      0.0025000000000000005,
+      0.0025000000000000005,
+      7.615435494667714e-05,
+      7.615435494667714e-05,
+      7.615435494667714e-05,
+      1e-06,
+      1e-06,
+      1e-06,
+      0.010000000000000002,
+      0.010000000000000002,
+      0.010000000000000002
+    ],
+    "ba_is_conditional_on_pose_and_gravity": true
+  },
+  "counts": {
+    "accepted": 24612,
+    "invalid_covariance": 0,
+    "policy_skipped": 0,
+    "dropout_skipped": 0,
+    "rejected": 0
+  },
+  "output_rows": 24618,
+  "input_pose_comparison_rows": 24612,
+  "input_pose_disagreement_position_rmse_m": 0.022286838868519336,
+  "input_pose_disagreement_attitude_rmse_deg": 0.22122853370542053,
+  "input_pose_disagreement_is_NOT_accuracy": true,
+  "covariance_min_eigenvalue_all_outputs": 2.326134250991864e-09,
+  "covariance_max_asymmetry": 0.0,
+  "quaternion_max_norm_error": 2.220446049250313e-16,
+  "wall_time_s_with_checks": 9.712861099998918,
+  "processing_rate_hz_with_checks": 2534.474625607767,
+  "filter_plus_baselines_step_median_ms": 0.32920000012381934,
+  "filter_plus_baselines_step_p99_ms": 0.754051999465446,
+  "filter_plus_baselines_step_max_ms": 3.249899998991168,
+  "final_bg_rad_s": [
+    0.0004180110214499352,
+    0.001673583142150029,
+    0.016864292587172598
+  ],
+  "final_ba_m_s2": [
+    -0.027485101686260952,
+    -0.017750426877896935,
+    -0.05713229955391162
+  ],
+  "dropout_s": null,
+  "nis_mean": 4.832902322172996,
+  "frame_assumption_confirmed": true
+}

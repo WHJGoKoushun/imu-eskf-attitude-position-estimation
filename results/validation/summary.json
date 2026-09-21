@@ -1,0 +1,362 @@
+{
+  "tests": [
+    {
+      "name": "test_static_gravity",
+      "passed": true,
+      "details": {
+        "position_max_abs_m": 3.552713678800484e-15,
+        "duration_s": 2.0,
+        "initial_rpy_rad": [
+          0.3,
+          -0.4,
+          0.6
+        ]
+      },
+      "elapsed_s": 0.05639530000007653,
+      "label": "倾斜静止状态的重力与偏置补偿",
+      "category": "数学与物理一致性"
+    },
+    {
+      "name": "test_constant_rotation_and_sign",
+      "passed": true,
+      "details": {
+        "attitude_error_rad": 2.4939122202684158e-15,
+        "sign_equivalence_max_error": 0.0
+      },
+      "elapsed_s": 0.06025640000007115,
+      "label": "恒角速度方向、q与−q等价性",
+      "category": "数学与物理一致性"
+    },
+    {
+      "name": "test_euler_covariance_mapping",
+      "passed": true,
+      "details": {
+        "jacobian_max_abs_error": 8.326672684689022e-11,
+        "covariance_max_abs_error": 6.709940898264391e-16
+      },
+      "elapsed_s": 0.00028869999914604705,
+      "label": "欧拉协方差映射的有限差分",
+      "category": "数学与物理一致性"
+    },
+    {
+      "name": "test_discretization_against_van_loan",
+      "passed": true,
+      "details": {
+        "cases": [
+          {
+            "dt_s": 0.005,
+            "phi_max_abs_error": 1.6484172983379674e-10,
+            "qd_max_abs_error": 6.347353844404245e-19
+          },
+          {
+            "dt_s": 0.01,
+            "phi_max_abs_error": 2.6392317438346804e-09,
+            "qd_max_abs_error": 2.0272720010322378e-17
+          }
+        ],
+        "reference": "scipy.linalg.expm, 30x30 Van Loan"
+      },
+      "elapsed_s": 0.0007779000006848946,
+      "label": "状态转移和Q对照Van Loan指数",
+      "category": "数值稳定性"
+    },
+    {
+      "name": "test_reset_and_residual_jacobians",
+      "passed": true,
+      "details": {
+        "reset_max_abs_error": 1.8567508641709196e-11,
+        "residual_noise_max_abs_error": 2.441973012690113e-11
+      },
+      "elapsed_s": 0.0005603999998129439,
+      "label": "误差重置及Log噪声雅可比",
+      "category": "数学与物理一致性"
+    },
+    {
+      "name": "test_predict_covariance_matches_state_derivative",
+      "passed": true,
+      "details": {
+        "step_s": 0.0001,
+        "covariance_max_abs_error": 2.5021738153663264e-12,
+        "note": "First-order model check; finite-step freeze is not exact nonlinear propagation."
+      },
+      "elapsed_s": 0.009879400000500027,
+      "label": "实际预测的15维状态有限差分",
+      "category": "数学与物理一致性"
+    },
+    {
+      "name": "test_update_covariance_and_zero_rejection",
+      "passed": true,
+      "details": {
+        "zero_covariance_rejected": true,
+        "posterior_symmetry_max_abs": 0.0,
+        "posterior_min_eigenvalue": 2.9790800003785224e-06
+      },
+      "elapsed_s": 0.019728900000700378,
+      "label": "Joseph后P半正定、拒绝零协方差",
+      "category": "数值稳定性"
+    },
+    {
+      "name": "test_observation_outage",
+      "passed": true,
+      "details": {
+        "gap_s": 1.5,
+        "position_variance_trace_before": 0.03,
+        "position_variance_trace_after": 3.182082688277474
+      },
+      "elapsed_s": 0.03952899999967485,
+      "label": "无观测区间传播及P增长",
+      "category": "数值稳定性"
+    },
+    {
+      "name": "test_analytic_truth_derivatives",
+      "passed": true,
+      "details": {
+        "velocity_derivative_error": 3.5264580144911406e-10,
+        "acceleration_derivative_error": 1.7368400120898464e-10,
+        "body_rate_derivative_error": 1.5201378350537809e-10
+      },
+      "elapsed_s": 0.00043109999933221843,
+      "label": "解析真值的位置与姿态导数",
+      "category": "数学与物理一致性"
+    }
+  ],
+  "simulations": [
+    {
+      "seed": 7,
+      "duration_s": 20.0,
+      "scored_time_interval_s": [
+        2.0,
+        20.0
+      ],
+      "samples_scored": 3601,
+      "observations_used": 165,
+      "metrics": {
+        "raw_imu": {
+          "position_rmse_m": 39.93360830928461,
+          "position_max_error_m": 101.18891416479634,
+          "attitude_geodesic_rmse_deg": 9.205155132053992,
+          "attitude_geodesic_max_error_deg": 15.340824665851233
+        },
+        "bias_corrected_imu": {
+          "position_rmse_m": 3.109326869438088,
+          "position_max_error_m": 7.397334238498857,
+          "attitude_geodesic_rmse_deg": 0.7520115645900837,
+          "attitude_geodesic_max_error_deg": 1.337114078448455
+        },
+        "eskf": {
+          "position_rmse_m": 0.013237154625126538,
+          "position_max_error_m": 0.03307605901396628,
+          "attitude_geodesic_rmse_deg": 0.13647599239706465,
+          "attitude_geodesic_max_error_deg": 0.3880725560625565
+        }
+      },
+      "initial_bg_estimate_radps": [
+        0.007707681472242431,
+        -0.00794399937333976,
+        0.011602210169020704
+      ],
+      "initial_ba_estimate_mps2": [
+        0.054695369890922316,
+        -0.040729509514736646,
+        0.07411477841490743
+      ],
+      "true_bg_radps": [
+        0.009,
+        -0.007,
+        0.012
+      ],
+      "true_ba_mps2": [
+        0.055,
+        -0.04,
+        0.07
+      ],
+      "final_bg_estimate_radps": [
+        0.00848699424202088,
+        -0.007068276961606584,
+        0.011898111994747392
+      ],
+      "final_ba_estimate_mps2": [
+        0.052371310663587994,
+        -0.04037685557539005,
+        0.0710610439785475
+      ],
+      "final_cov_min_eigenvalue": 4.4088991858519216e-08,
+      "quaternion_max_norm_error": 2.220446049250313e-16,
+      "filter_step_time_ms": {
+        "mean": 0.15561075000833727,
+        "p95": 0.3497349997815034,
+        "p99": 0.47043200025655024,
+        "max": 0.7528999994974583
+      }
+    },
+    {
+      "seed": 29,
+      "duration_s": 20.0,
+      "scored_time_interval_s": [
+        2.0,
+        20.0
+      ],
+      "samples_scored": 3601,
+      "observations_used": 165,
+      "metrics": {
+        "raw_imu": {
+          "position_rmse_m": 42.133539203088915,
+          "position_max_error_m": 106.8337151578597,
+          "attitude_geodesic_rmse_deg": 9.269633049182836,
+          "attitude_geodesic_max_error_deg": 15.440883170913915
+        },
+        "bias_corrected_imu": {
+          "position_rmse_m": 3.723519754851845,
+          "position_max_error_m": 9.93411925639809,
+          "attitude_geodesic_rmse_deg": 0.6887666533565319,
+          "attitude_geodesic_max_error_deg": 1.0416293588058554
+        },
+        "eskf": {
+          "position_rmse_m": 0.015583093809786164,
+          "position_max_error_m": 0.06901056902751782,
+          "attitude_geodesic_rmse_deg": 0.13485689455954086,
+          "attitude_geodesic_max_error_deg": 0.34717612996266567
+        }
+      },
+      "initial_bg_estimate_radps": [
+        0.00953042247098062,
+        -0.0067854990175923524,
+        0.011172447976615629
+      ],
+      "initial_ba_estimate_mps2": [
+        0.05267925022952183,
+        -0.03701721418302812,
+        0.07875180355786426
+      ],
+      "true_bg_radps": [
+        0.009,
+        -0.007,
+        0.012
+      ],
+      "true_ba_mps2": [
+        0.055,
+        -0.04,
+        0.07
+      ],
+      "final_bg_estimate_radps": [
+        0.009136114068840904,
+        -0.0072610379790723255,
+        0.01190009023330581
+      ],
+      "final_ba_estimate_mps2": [
+        0.05138383953132517,
+        -0.03741353752739452,
+        0.07252066858939457
+      ],
+      "final_cov_min_eigenvalue": 4.4090576703356676e-08,
+      "quaternion_max_norm_error": 2.220446049250313e-16,
+      "filter_step_time_ms": {
+        "mean": 0.1531560833538808,
+        "p95": 0.3472050007076177,
+        "p99": 0.47040900028150623,
+        "max": 1.3650999990204582
+      }
+    },
+    {
+      "seed": 113,
+      "duration_s": 20.0,
+      "scored_time_interval_s": [
+        2.0,
+        20.0
+      ],
+      "samples_scored": 3601,
+      "observations_used": 165,
+      "metrics": {
+        "raw_imu": {
+          "position_rmse_m": 40.802507080526155,
+          "position_max_error_m": 103.63000622156979,
+          "attitude_geodesic_rmse_deg": 9.227895944397682,
+          "attitude_geodesic_max_error_deg": 15.426780687159443
+        },
+        "bias_corrected_imu": {
+          "position_rmse_m": 4.339899931184586,
+          "position_max_error_m": 11.261769034623162,
+          "attitude_geodesic_rmse_deg": 0.7979684417170203,
+          "attitude_geodesic_max_error_deg": 1.390838495468993
+        },
+        "eskf": {
+          "position_rmse_m": 0.015968689606640205,
+          "position_max_error_m": 0.05145408632474163,
+          "attitude_geodesic_rmse_deg": 0.1577673047254266,
+          "attitude_geodesic_max_error_deg": 0.3783788428083241
+        }
+      },
+      "initial_bg_estimate_radps": [
+        0.00856773237078159,
+        -0.007323684401342826,
+        0.012828731280788774
+      ],
+      "initial_ba_estimate_mps2": [
+        0.05305009397580718,
+        -0.047619418393631464,
+        0.06440377860043434
+      ],
+      "true_bg_radps": [
+        0.009,
+        -0.007,
+        0.012
+      ],
+      "true_ba_mps2": [
+        0.055,
+        -0.04,
+        0.07
+      ],
+      "final_bg_estimate_radps": [
+        0.009276863502779627,
+        -0.006985075925666599,
+        0.011721249117554323
+      ],
+      "final_ba_estimate_mps2": [
+        0.0549088453450154,
+        -0.044207546337291445,
+        0.07098202648938808
+      ],
+      "final_cov_min_eigenvalue": 4.4089110701927006e-08,
+      "quaternion_max_norm_error": 2.220446049250313e-16,
+      "filter_step_time_ms": {
+        "mean": 0.15200699999493536,
+        "p95": 0.34362500055067347,
+        "p99": 0.4446390002703983,
+        "max": 0.6755999984306982
+      }
+    }
+  ],
+  "synthetic_experiment_assumptions": {
+    "truth": "Explicit analytic C2 trajectory; derivatives cross-checked numerically.",
+    "imu_rate_hz": 200,
+    "pose_rate_hz": 10,
+    "calibration_interval_s": [
+      0,
+      2
+    ],
+    "observation_outage_s": [
+      12,
+      13.5
+    ],
+    "imu_convention": "One noisy interval midpoint sample is provided at its interval end; no future pose interpolation.",
+    "initial_state": "Known static zero position/velocity and identity orientation; first 2 s used for bias initialization and excluded from scoring.",
+    "noise": "Independent sampled IMU white noise, independent Euler/position observations, constant known biases.",
+    "scope": "This controlled experiment checks filter behavior under its assumptions; it does not establish improvement over correlated real FAST-LIO measurements.",
+    "timing_scope": "Predict and observation generation/update only; excludes baseline integration, CSV I/O, and plotting."
+  },
+  "mean_metrics_across_seeds": {
+    "raw_imu": {
+      "position_rmse_m": 40.95655153096656,
+      "attitude_geodesic_rmse_deg": 9.23422804187817
+    },
+    "bias_corrected_imu": {
+      "position_rmse_m": 3.72424885182484,
+      "attitude_geodesic_rmse_deg": 0.7462488865545452
+    },
+    "eskf": {
+      "position_rmse_m": 0.014929646013850969,
+      "attitude_geodesic_rmse_deg": 0.14303339722734404
+    }
+  },
+  "passed": true
+}
